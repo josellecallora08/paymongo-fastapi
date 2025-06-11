@@ -1,0 +1,57 @@
+{
+    "data": {
+        "id": "evt_xh7cX2kn6PYVbZUMquD3m2GE",
+        "type": "event",
+        "attributes": {
+            "type": "payment.paid",
+            "livemode": false,
+            "data": {
+                "id": "pay_7WmZrAjmZqCAQYkHNLkrmYvS",
+                "type": "payment",
+                "attributes": {
+                    "access_url": null,
+                    "amount": 10000,
+                    "balance_transaction_id": "bal_txn_iWC2Jfv9GqdyJjaUZMZSgwuM",
+                    "billing": null,
+                    "currency": "PHP",
+                    "description": null,
+                    "disputed": false,
+                    "external_reference_number": null,
+                    "fee": 250,
+                    "instant_settlement": null,
+                    "livemode": false,
+                    "net_amount": 9750,
+                    "origin": "api",
+                    "payment_intent_id": null,
+                    "payout": null,
+                    "source": {
+                        "id": "src_gE5hRoEjkL14wt9GGwF2KFsE",
+                        "type": "gcash",
+                        "provider": {
+                            "id": null
+                        },
+                        "provider_id": null
+                    },
+                    "statement_descriptor": "Sojdev",
+                    "status": "paid",
+                    "tax_amount": null,
+                    "metadata": null,
+                    "promotion": null,
+                    "refunds": [],
+                    "taxes": [],
+                    "available_at": 1750150800,
+                    "created_at": 1749679224,
+                    "credited_at": 1750237200,
+                    "paid_at": 1749679224,
+                    "updated_at": 1749679224
+                }
+            },
+            "previous_data": {},
+            "pending_webhooks": 1,
+            "created_at": 1749679224,
+            "updated_at": 1749679224
+        }
+    }
+}
+
+
