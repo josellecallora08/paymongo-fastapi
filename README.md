@@ -83,6 +83,8 @@ _Sample Response_
 
 ```json
 POST /v1/payment_intents
+Authorization: Basic <base64_secret>
+Content-Type: application/json
 {
 "amount": 10000,
 "currency": "PHP",
@@ -137,18 +139,17 @@ _Sample Response_
 
 3. **Attach Payment Method**
 
-   ```json
-   POST /v1/payment_intents/{intent_id}/attach
-   Authorization: Basic <base64_secret>
-   Content-Type: application/json
-   {
-   "payment_method": "{payment_method_id}",
-   "return_url": "https://your-site.com/payment-success"
-   }
+```json
+POST /v1/payment_intents/{intent_id}/attach
+Authorization: Basic <base64_secret>
+Content-Type: application/json
+{
+"payment_method": "{payment_method_id}",
+"return_url": "https://your-site.com/payment-success"
+}
+```
 
-   ```
-
-   **Sample Response**
+**Sample Response**
 
 ```json
 {
@@ -197,8 +198,8 @@ _Sample Response_
 }
 ```
 
-4. **Redirect the user to the <pre> `next_action.redirect.url` </pre>.**
-5. Listen to Webhook <pre>`payment_intent.succeeded` </pre>
+4. **Redirect the user to the `next_action.redirect.url`.**
+5. **Listen to Webhook `payment_intent.succeeded`**
    → You finalize business logic (e.g. activating a subscription)
 
 ### 2. E-wallet Payment – Source Flow (GCash, GrabPay)
@@ -211,26 +212,26 @@ _Sample Response_
 
 1. **Create a Source**
 
-   ```json
-   POST /v1/sources
-   Authorization: Basic <base64_secret>
-   Content-Type: application/json
-   {
-   "type": "gcash", // or "grab_pay"
-   "amount": 10000,
-   "currency": "PHP",
-   "redirect": {
-       "success": "http://localhost:3000/success",
-       "failed": "http://localhost:3000/failed"
-   },
-   "billing": {
-       "name": "Jane Doe",
-       "email": "jane@example.com"
-   }
-   }
-   ```
+```json
+POST /v1/sources
+Authorization: Basic <base64_secret>
+Content-Type: application/json
+{
+"type": "gcash", // or "grab_pay"
+"amount": 10000,
+"currency": "PHP",
+"redirect": {
+    "success": "http://localhost:3000/success",
+    "failed": "http://localhost:3000/failed"
+},
+"billing": {
+    "name": "Jane Doe",
+    "email": "jane@example.com"
+}
+}
+```
 
-   **Sample Response**
+**Sample Response**
 
 ```json
 {
@@ -264,22 +265,22 @@ _Sample Response_
    → Once the source becomes chargeable, create a payment:
 4. **Create a Payment**
 
-   ```json
-   POST /v1/payments
-   Authorization: Basic <base64_secret>
-   Content-Type: application/json
-   {
-   "amount": 10000,
-   "currency": "PHP",
-   "source": {
-   "id": "src_xxx",
-   "type": "source"
-   },
-   "description": "Payment for Plan A"
-   }
-   ```
+```json
+POST /v1/payments
+Authorization: Basic <base64_secret>
+Content-Type: application/json
+{
+"amount": 10000,
+"currency": "PHP",
+"source": {
+"id": "src_xxx",
+"type": "source"
+},
+"description": "Payment for Plan A"
+}
+```
 
-   **Sample Response**
+**Sample Response**
 
 ```json
 {
